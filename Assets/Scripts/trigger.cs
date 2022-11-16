@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class trigger : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    float xrotation;
+    float yrotation;
+    float zrotation;
+    public void OnTriggerEnter(Collider other)
     {
         if (other.tag=="Player")
         {
             Debug.Log("huevos con aceite");
+            transform.Rotate(xrotation, yrotation, zrotation);
         }
     }
 }
