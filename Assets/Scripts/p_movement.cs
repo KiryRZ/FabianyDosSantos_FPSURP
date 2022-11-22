@@ -5,10 +5,8 @@ using UnityEngine;
 public class p_movement : MonoBehaviour
 {
     [Header("Movimiento")]
-    public float VelocidadCaminar;
+    public float Velocidad;
     public float groundDrag;
-    public float fuerzaSalto = 5;
-    public float distanciaSuelo = 0.5f;
 
     [Header("GroundCheck")]
     public float playerHeight;
@@ -40,22 +38,14 @@ public class p_movement : MonoBehaviour
         MyInput();
 
         if (grounded)
-        { 
-                rb.drag = groundDrag;
-            Debug.Log("salto");
+        {
+            rb.drag = groundDrag;
         }
         else
         {
             rb.drag = 0;
-            if (Input.GetButtonDown("Jump"))
-            {
-                rb.velocity = Vector3.up * fuerzaSalto;
-            }
         }
-        
-
     }
-  
 
     private void FixedUpdate()
     {
@@ -72,7 +62,6 @@ public class p_movement : MonoBehaviour
     {
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        rb.AddForce(moveDirection.normalized * VelocidadCaminar * 10f, ForceMode.Force);
+        rb.AddForce(moveDirection.normalized * Velocidad * 10f, ForceMode.Force);
     }
-
 }
