@@ -3206,7 +3206,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &861652999
@@ -4629,6 +4629,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
+  grounded: 0
   orientation: {fileID: 2003997027}
 --- !u!1 &1646215249
 GameObject:
@@ -6553,7 +6554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 453763113785813262, guid: 37e6d19b68f778e49bb7cde457543ce2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.2
+      value: 31.2
       objectReference: {fileID: 0}
     - target: {fileID: 453763113785813262, guid: 37e6d19b68f778e49bb7cde457543ce2, type: 3}
       propertyPath: m_LocalPosition.z
