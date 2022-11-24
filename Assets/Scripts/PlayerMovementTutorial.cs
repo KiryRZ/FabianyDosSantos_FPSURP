@@ -42,14 +42,16 @@ public class PlayerMovementTutorial : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        readyToJump = true;
+        
         ResetJump();
     }
 
     private void Update()
     {
         
-        grounded = Physics.Raycast(transform.position, Vector3.down, Mathf.Infinity, whatIsGround, QueryTriggerInteraction.Ignore);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight + 0.2f, whatIsGround, QueryTriggerInteraction.Ignore);
+
+        Debug.DrawRay(transform.position, Vector3.down * Mathf.Infinity, Color.green);
 
         MyInput();
         SpeedControl();
@@ -57,7 +59,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         if (grounded)
         {
-            Debug.Log("webos");
+            Debug.Log("toca el suelo");
             rb.drag = groundDrag;
         }
         else
