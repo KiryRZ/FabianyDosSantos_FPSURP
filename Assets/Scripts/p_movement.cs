@@ -21,6 +21,8 @@ public class p_movement : MonoBehaviour
 
     Rigidbody rb;
 
+    public float fuerzaSalto = 500;
+
     float xRotation;
     float yRotation;
 
@@ -34,12 +36,17 @@ public class p_movement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        
+
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
         MyInput();
 
         if (grounded)
         {
+        Debug.Log("Suelo");
+            if (Input.GetButtonDown("Jump")) rb.AddForce(new Vector3(0, fuerzaSalto, 0));
             rb.drag = groundDrag;
+            
         }
         else
         {

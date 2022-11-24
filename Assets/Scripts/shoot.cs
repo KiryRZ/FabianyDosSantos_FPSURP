@@ -10,7 +10,7 @@ public class shoot : MonoBehaviour
     public GameObject BalaPrefab;
     //Agregar Bala Velocidad
     public float BalaVelocidad;
-    private float TimeBala = 0f;
+    private float TimeBala = 2000f;
     // Update is called once per frame
     void Update()
     {
