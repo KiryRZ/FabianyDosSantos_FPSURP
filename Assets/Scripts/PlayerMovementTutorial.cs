@@ -26,7 +26,7 @@ public class PlayerMovementTutorial : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     public Transform orientation;
 
@@ -49,14 +49,17 @@ public class PlayerMovementTutorial : MonoBehaviour
     private void Update()
     {
         
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.05f + 0.03f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, Mathf.Infinity, whatIsGround, QueryTriggerInteraction.Ignore);
 
         MyInput();
         SpeedControl();
 
-        
+
         if (grounded)
+        {
+            Debug.Log("webos");
             rb.drag = groundDrag;
+        }
         else
             rb.drag = 0;
     }
