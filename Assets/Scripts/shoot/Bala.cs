@@ -6,14 +6,14 @@ public class Bala : MonoBehaviour
 {
     public float tiempoDeVida = 3;
 
-    void Awake()
-    {
-        Destroy(gameObject, tiempoDeVida);
-    }
+    //void Awake()
+    //{
+    //    Destroy(gameObject, tiempoDeVida);
+    //}
 
     void OnCollisionEnter(Collision collision)
     {
         Destroy(collision.gameObject);
-       
+        Destroy(gameObject);
     }
 }

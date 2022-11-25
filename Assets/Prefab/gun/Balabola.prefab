@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8890497498335845352}
   - component: {fileID: 6877959828523998434}
   - component: {fileID: 1632440490247999261}
+  - component: {fileID: 6518840690922459845}
   m_Layer: 0
   m_Name: Balabola
   m_TagString: Untagged
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6518840690922459845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7211997655909891086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daf3fd73342f0794285b007f441b0d4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoDeVida: 3

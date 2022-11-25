@@ -63,11 +63,14 @@ public class WeaponController : MonoBehaviour
                 {
                     Destroy(nuevaBala, 2f);
                     }
-            }  
-            
+            }
 
+            
         }
-    }
+
+
+   
+}
    
     
 }
