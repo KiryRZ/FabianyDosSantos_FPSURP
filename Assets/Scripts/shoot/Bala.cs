@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Bala : MonoBehaviour
 {
-    public float tiempoDeVida = 3;
+    //public float tiempoDeVida = 3;
 
-    //void Awake()
+    ////void Awake()
+    ////{
+    ////    Destroy(gameObject, tiempoDeVida);
+    ////}
+
+    //void OnCollisionEnter(Collision collision)
     //{
-    //    Destroy(gameObject, tiempoDeVida);
+    //    Destroy(collision.gameObject);
+    //    Destroy(gameObject);
     //}
-
-    void OnCollisionEnter(Collision collision)
-    {
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
-    }
 }
