@@ -30,6 +30,8 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     public Transform orientation;
 
+    public float cantidadGravedad = -20f;
+    
     float horizontalInput;
     float verticalInput;
 
@@ -37,9 +39,13 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     Rigidbody rb;
 
+    
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        Physics.gravity = new Vector3(0, cantidadGravedad, 0);
         rb.freezeRotation = true;
 
         
