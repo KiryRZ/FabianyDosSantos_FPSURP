@@ -83,7 +83,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   agujerobalaPrefab: {fileID: 8922994851857813979, guid: 605787a33443e924a986dacf71d57593, type: 3}
   damage: 10
-  impactForce: 117
+  impactForce: 350
   rangoDeDisparo: 90
   frecuenciaDisparo: 3
   impactEffect: {fileID: 8922994851857813979, guid: 605787a33443e924a986dacf71d57593, type: 3}

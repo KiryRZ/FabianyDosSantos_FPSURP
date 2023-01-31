@@ -6,22 +6,29 @@ using TMPro;
 public class PlayerMovementTutorial : MonoBehaviour
 {
     [Header("Movement")]
-
-    //dios mio no puedo más no funciona ni con pegamento no salta y todo el rato está en el aire :(
-    public float moveSpeed;
+    public float walkSpeed;
+    public float sprintSpeed;
+    private float moveSpeed;
 
     public float groundDrag;
 
+    [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump;
 
-    [HideInInspector] public float walkSpeed;
-    [HideInInspector] public float sprintSpeed;
+    [Header("Crouching")]
+    public float crouchSpeed;
+    public float crouchYScale;
+    private float startYScale;
+    
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode sprintKey = KeyCode.LeftShift;
+    public KeyCode crouchKey = KeyCode.LeftControl;
+
 
     [Header("Ground Check")]
     public float playerHeight;
@@ -39,15 +46,55 @@ public class PlayerMovementTutorial : MonoBehaviour
 
     Rigidbody rb;
 
+    public MovementState state;
+    public enum MovementState
+    {
+        walking,
+        sprinting,
+        crouching,
+        air
+    }
+
+    private void StateHandler()
+    {
+        // Mode-Sprinting
+        if(grounded && Input.GetKey(sprintKey))
+        {
+            state = MovementState.sprinting;
+            moveSpeed = sprintSpeed;
+        }
+        
+        //Mode - Walking
+        else if(grounded)
+        {
+            state = MovementState.walking;
+            moveSpeed = walkSpeed;
+
+        }
+
+        //Mode - Air
+        else
+        {
+            state = MovementState.air;
+        }
+
+        //Mode- Crouching
+        if (Input.GetKey(crouchKey))
+        {
+            state = MovementState.crouching;
+            moveSpeed = crouchSpeed;
+        }
+    }
     
     private void Start()
     {
 
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = true;
+        //rb.useGravity = true;
         Physics.gravity = new Vector3(0, cantidadGravedad, 0);
         rb.freezeRotation = true;
 
+        startYScale = transform.localScale.y;
         
         ResetJump();
     }
@@ -61,6 +108,7 @@ public class PlayerMovementTutorial : MonoBehaviour
 
         MyInput();
         SpeedControl();
+        StateHandler();
 
 
         if (grounded)
@@ -82,7 +130,7 @@ public class PlayerMovementTutorial : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        
+        //para saltar 
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
             readyToJump = false;
@@ -90,6 +138,18 @@ public class PlayerMovementTutorial : MonoBehaviour
             Jump();
 
             Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        //empezar crouch
+        if(Input.GetKey(crouchKey))
+
+        {
+            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            rb.AddForce(Vector3.down * 5f, ForceMode.Impulse);
+        }
+        if (Input.GetKeyUp(crouchKey))
+        {
+            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
         }
     }
 

@@ -2217,7 +2217,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  impactForce: 30
 --- !u!65 &397181271
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7321,6 +7320,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2732108952117392345, guid: 073799b31ee5baa47aae28902b90d47b, type: 3}
+      propertyPath: walkSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732108952117392345, guid: 073799b31ee5baa47aae28902b90d47b, type: 3}
+      propertyPath: crouchSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732108952117392345, guid: 073799b31ee5baa47aae28902b90d47b, type: 3}
+      propertyPath: sprintSpeed
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2732108952117392345, guid: 073799b31ee5baa47aae28902b90d47b, type: 3}
+      propertyPath: crouchYScale
+      value: 2.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2732108952435299632, guid: 073799b31ee5baa47aae28902b90d47b, type: 3}
       propertyPath: m_RootOrder
       value: 5
