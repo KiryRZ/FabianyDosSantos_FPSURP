@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,20 +27,20 @@ public class animationPlayerStateController : MonoBehaviour
 
         if (!isWalking  && forwardPressed)
         {
-            animator.SetBool("isWalkingHash", true);
+            animator.SetBool(isWalkingHash, true);
         }
         if (isWalking && !forwardPressed)
         {
-            animator.SetBool("isWalkingHash", false);
+            animator.SetBool(isWalkingHash, false);
         }
         
         if (!isRunning && (forwardPressed && runPressed))
         {
-            animator.SetBool("isRunningHash", true);
+            animator.SetBool(isRunningHash, true);
         }
         if (isRunning && (!forwardPressed || !runPressed))
         {
-            animator.SetBool("isRunningHash ", false);
+            animator.SetBool(isRunningHash, false);
         }
     }
 }
