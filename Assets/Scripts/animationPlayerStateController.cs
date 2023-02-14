@@ -12,6 +12,7 @@ public class animationPlayerStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         animator = GetComponent<Animator>();
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
@@ -20,6 +21,9 @@ public class animationPlayerStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+       
+
         bool isWalking = animator.GetBool(isWalkingHash);
         bool forwardPressed = Input.GetKey("w");
         bool runPressed = Input.GetKey("left shift");
@@ -42,5 +46,6 @@ public class animationPlayerStateController : MonoBehaviour
         {
             animator.SetBool(isRunningHash, false);
         }
+
     }
 }
