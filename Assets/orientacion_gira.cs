@@ -19,6 +19,6 @@ public class orientacion_gira : MonoBehaviour
     void Update()
     {
         direccion = new Vector3(camara.transform.position.x, 0, camara.transform.position.z);
-        transform.rotation = Quaternion.
+        //transform.rotation = Quaternion.
     }
 }
